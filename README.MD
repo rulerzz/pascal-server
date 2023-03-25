@@ -1,9 +1,41 @@
-<!-- THIS IS A NODEJS DEMO -->
 
-1. npm init to initialise the project -> package.json will be generated
+# Project Title
 
-Objective to generate package.json
-=> Project info
-=> Package main entry file
-=> Scripts for multiple env
-=> Dependency graph
+Node Js Basics with Express
+
+
+
+
+## Pre Installation
+
+Install nodemon globally to run app 
+```bash
+  npm i -g nodemon
+```
+
+## Installation
+
+Install dependencies with npm
+
+```bash
+  cd nodejs-demo
+  npm install
+```
+
+## Run The Package
+
+To run the server use this command
+
+```bash
+  npm start
+```
+or
+```bash
+  npm run start
+```
+or run nodemon manually by providing path for index.js
+```bash
+  nodemon src/index.js
+```
+
+This should start the development server at http://127.0.0.1:3000
