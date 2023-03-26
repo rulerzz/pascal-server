@@ -3,6 +3,8 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const session = require('express-session')
+const cookieSession = require('cookie-session')
+const cookieParser = require('cookie-parser')
 
 app.use('/static', express.static('assets'))
 app.set('view engine', 'ejs')
@@ -13,8 +15,25 @@ app.use(session({
     saveUninitialized: false, // don't create session until something stored
     secret: 'shhhh, very secret'
 }));
+app.use(cookieParser('key1'));
+// app.use(cookieSession({
+//     name: 'session',
+//     keys: ['asdf', '1234'],
+//     // Cookie Options
+//     maxAge: 5 * 1000 // 24 hours
+// }))
 
 const port = 3000
+
+// Content Negotiation 
+// function format(path) {
+//     var obj = require(path);
+//     return function (req, res) {
+//         res.format(obj);
+//     };
+// }
+
+// app.get('/', format('./middlewares/indexContentNegotiator'))
 
 app.get('/', (req, res) => {
     let userImageData = [
@@ -27,6 +46,7 @@ app.get('/', (req, res) => {
     res.render("templates/index", { pageTitle: "Welcome to p360", websiteBrandName: "P360 Solutions", userdata: userImageData, session: req.session?.user })
 })
 
+
 app.get('/login', (req, res) => {
     if (req.session.user)
         res.redirect('/dashboard')
@@ -37,6 +57,7 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/dashboard', (req, res) => {
+    console.log(req.cookies)
     if (!req.session.user)
         res.redirect('/login')
     else
@@ -45,15 +66,21 @@ app.get('/dashboard', (req, res) => {
 
 app.get('/logout', (req, res) => {
     req.session.destroy()
+    res.clearCookie('loggedin');
+    // req.session = null
     res.redirect('/login')
 })
 
+app.get('/download', (req, res) => {
+    res.download(path.join(__dirname, '../assets/images/anemo.png'))
+})
+
 app.post('/login-process', (req, res) => {
-    console.log(req.body)
     if (req.body.email === 'test@gmail.com' && req.body.password === 'asdf1234') {
         // display dashboard & begin session
         req.session.user = req.body.email
         req.session.start_time = Date.now()
+        res.cookie('loggedin', true)
         res.redirect('/dashboard')
     }
     else {

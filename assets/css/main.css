@@ -1,10 +1,13 @@
-.ov {
+.elements{
+  
   overflow: hidden;
+}
+.ov {
   padding: 1rem;
 }
 .ov img {
   aspect-ratio: 16 / 9;
-  max-height: 250px;
+  max-height: 200px;
   opacity: 0.9;
 }
 body{

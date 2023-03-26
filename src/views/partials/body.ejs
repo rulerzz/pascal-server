@@ -1,11 +1,12 @@
 <div class="container p-0">
   <div class="row">
     <% userdata.forEach(function(data){ %>
-    <div class="col-md-4 <%= data.type %>">
+    <div class="elements col-md-4 <%= data.type %>">
       <div class="ov">
         <h5><%= data.name %></h5>
         <img src="<%= data.imageUrl %>" />
         <p><%= data.description %></p>
+        <a href="static/images/<%=data.type%>.png" download target="_blank">Download</a>
       </div>
     </div>
     <% }); %>
