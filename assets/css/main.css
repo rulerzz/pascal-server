@@ -1,0 +1,68 @@
+.elements{
+  
+  overflow: hidden;
+}
+.ov {
+  padding: 1rem;
+}
+.ov img {
+  aspect-ratio: 16 / 9;
+  max-height: 200px;
+  opacity: 0.9;
+}
+body{
+  padding: 0;
+  margin: 0;
+}
+.anemo{
+  color: green;
+  background-image: url('../images/anemo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.cryo{
+  color: black;
+  background-image: url('../images/cryo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.pyro{
+  color: red;
+  background-image: url('../images/pyro.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.electro{
+  color: blue;
+  background-image: url('../images/electro.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.dendro{
+  color: orange;
+  background-image: url('../images/dendro.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hydro{
+  color: skyblue;
+  background-image: url('../images/hydro.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.geo{
+  color: yellow;
+  background-image: url('../images/geo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.form-login{
+  margin: 4rem 1rem;
+}
+footer{
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  text-align: center;
+}
