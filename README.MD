@@ -22,6 +22,18 @@ Install dependencies with npm
   npm install
 ```
 
+## Build
+
+run ```bash
+  npx tsc
+```
+
+or
+
+```bash
+  npm run tsc
+```
+
 ## Run The Package
 
 To run the server use this command
