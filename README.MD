@@ -24,13 +24,13 @@ Install dependencies with npm
 
 ## Build
 
-run ```
+run ```bash
   npx tsc
 ```
 
 or
 
-```
+```bash
   npm run tsc
 ```
 
