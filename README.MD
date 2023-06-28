@@ -24,7 +24,9 @@ Install dependencies with npm
 
 ## Build
 
-run ```bash
+To build the server use this command
+
+```bash
   npx tsc
 ```
 
