@@ -1,11 +1,14 @@
-const express = require("express");
-const ApiError = require("../../utils/ApiError");
-const httpStatus = require("http-status");
-
+import express from "express";
+import { Actor } from "../../models/actorModel";
 const authRouter = express.Router();
 
-authRouter.get("/", function (request, response) {
-    response.send("ok")
+authRouter.get("/", async function (request, response) {
+  try {
+    const users = await Actor.findAll();
+    response.send(JSON.stringify(users));
+  } catch (e) {
+    response.send(e);
+  }
 });
 
 authRouter.get("/:id", function (request, response) {
@@ -20,4 +23,4 @@ authRouter.post("/", function (request, response) {
   );
 });
 
-module.exports = authRouter;
+export { authRouter };

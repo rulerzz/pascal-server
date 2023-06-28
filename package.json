@@ -2,9 +2,10 @@
   "name": "pascal",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "tsc": "tsc",
+    "start": "nodemon dist/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +16,17 @@
     "joi": "^17.9.1",
     "mongoose": "^7.0.3",
     "morgan": "^1.10.0",
+    "mysql2": "^3.4.2",
     "pm2": "^5.3.0",
+    "sequelize": "^6.32.1",
+    "sqlite3": "^5.1.6",
     "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/joi": "^17.2.3",
+    "@types/morgan": "^1.9.4",
+    "@types/node": "^20.3.2",
+    "typescript": "^5.1.5"
   }
 }

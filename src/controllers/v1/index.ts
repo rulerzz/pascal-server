@@ -1,17 +1,17 @@
-const authRoute = require("./auth");
-const express = require("express");
+import { authRouter } from "./auth";
+import express from "express";
 
 const apiV1Router = express.Router();
 
 const defaultRoutes = [
   {
     path: "/auth",
-    route: authRoute,
-  }
+    route: authRouter,
+  },
 ];
 
 defaultRoutes.forEach((route) => {
   apiV1Router.use(route.path, route.route);
 });
 
-module.exports = apiV1Router;
+export { apiV1Router };

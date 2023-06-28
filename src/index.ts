@@ -1,25 +1,20 @@
-const express = require("express");
-const path = require("path");
-const app = express();
+import express from "express";
+import config from "./config/config";
+import ApiError from "./utils/ApiError";
+import httpStatus from "http-status";
+import morganMiddleware from "./config/morgan";
+import { apiV1Router } from "./controllers/v1";
+import { errorConverter, errorHandler } from "./handellers/error";
 
-const config = require("./config/config");
-const ApiError = require("./utils/ApiError");
-const httpStatus = require("http-status");
-const morgan = require("./config/morgan");
+const app = express();
 
 app.use("/static", express.static("assets"));
 app.use(express.urlencoded({ extended: false }));
 
-const apiV1Router = require("./controllers/v1/index");
-
-// Require Error Convertor and Error Handellers
-const { errorConverter, errorHandler } = require("./handellers/error");
-
 const port = config.port;
 
 if (config.env !== "test") {
-  app.use(morgan.successHandler);
-  app.use(morgan.errorHandler);
+  app.use(morganMiddleware);
 }
 
 app.use("/api/v1", apiV1Router);
