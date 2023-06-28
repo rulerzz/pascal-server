@@ -35,7 +35,7 @@ or
 ```
 or run nodemon manually by providing path for index.js
 ```bash
-  nodemon src/index.js
+  nodemon dist/index.js
 ```
 
 This should start the development server at http://127.0.0.1:3000
